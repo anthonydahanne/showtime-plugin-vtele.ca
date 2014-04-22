@@ -1,0 +1,14 @@
+{
+  "type": "javascript",
+  "id": "vtele.ca",
+  "file": "vtele.js",
+  "category": "video",
+  "showtimeVersion": "4.3.167",
+  "version": "1.0",
+  "author": "Anthony Dahanne (@anthonydahanne)",
+  "title": "VTele.ca",
+  "icon": "vtele.png",
+  "synopsis": "Showtime plugin to watch VTele's replay TV",
+  "description":"<p>TV5Video.ca Showtime plugin allows the integration of VTele videos into Showtime.</p><p>Most of the content is in french, seems to be accessible from outside Canada, and is encoded in 640x360 only :-(</p>",
+  "homepage":"https://github.com/anthonydahanne/showtime-plugin-tv5video.ca"
+}
