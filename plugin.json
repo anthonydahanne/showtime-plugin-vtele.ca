@@ -9,6 +9,6 @@
   "title": "VTele.ca",
   "icon": "vtele.png",
   "synopsis": "Showtime plugin to watch VTele's replay TV",
-  "description":"<p>TV5Video.ca Showtime plugin allows the integration of VTele videos into Showtime.</p><p>Most of the content is in french, seems to be accessible from outside Canada, and is encoded in 640x360 only :-(</p>",
-  "homepage":"https://github.com/anthonydahanne/showtime-plugin-tv5video.ca"
+  "description":"<p>VTele.ca Showtime plugin allows the integration of VTele videos into Showtime.</p><p>Most of the content is in french, seems to be accessible from outside Canada, and is only loading best definition </p>",
+  "homepage":"http://blog.dahanne.net"
 }

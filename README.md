@@ -7,7 +7,6 @@ VTele.ca Showtime plugin allows the integration of VTele.ca videos into Showtime
 
 Most of the content is in french, seems to be accessible from outside Canada, and is encoded in up to 720p
 
-Git: https://github.com/anthonydahanne/showtime-plugin-VTele.ca
 
 ## Release notes
 
