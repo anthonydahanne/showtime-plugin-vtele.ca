@@ -1,7 +1,7 @@
 /**
- * Showtime plugin to watch TV5Canada replay TV 
+ * Showtime plugin to watch VTele replay TV 
  *
- * Copyright (C) 2013 Anthony Dahanne
+ * Copyright (C) 2014 Anthony Dahanne
  *
  *     This file is part of TV5Video.ca Showtime plugin.
  *
@@ -136,7 +136,17 @@
     var episodeMetadata = showtime.JSONDecode(getEpisodeResponse);
     var renditions = episodeMetadata.renditions;
     page.type = 'video';
-    page.source = renditions[renditions.length - 1].url;
+    var bestDefUrl = "";
+    var bestDefFrameWidth = 0;
+    for each(rendition in renditions) {
+        showtime.trace("rendition width: " + rendition.frameWidth);
+        if(rendition.frameWidth > bestDefFrameWidth) {
+          bestDefFrameWidth = rendition.frameWidth;
+          bestDefUrl = rendition.url;
+        }
+    }
+    showtime.trace("Playing best definition @ " + bestDefFrameWidth + " from : " + bestDefUrl);
+    page.source = bestDefUrl;
     page.loading = false;
   });
 
