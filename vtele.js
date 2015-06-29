@@ -54,14 +54,12 @@
 
     var emissions = showtime.JSONDecode(getEmissionsResponse);
     var allTitles = emissions.data;
-    var index = 0;
-    for each (var title in allTitles) {
+    for (var index in allTitles) {
       if (allTitles[index] != null ) {
           page.appendItem(PLUGIN_PREFIX+"emission:"+allTitles[index]["uid"] +":"+ allTitles[index]["nom"], "directory", {
           title: allTitles[index]["nom"]
    	    });
       }
-      index++;
     }
     page.loading = false;
   });
@@ -89,8 +87,7 @@
 
     var seasons = showtime.JSONDecode(getSeasonsResponse).data;
     var index = 0;
-    for each (var season in seasons) {
-      var season = seasons[index];
+    seasons.forEach(function(season) {
       var seasonUrl = EMISSIONS_URL + emissionId + "/videos/saisons/" + season["uid"];
       var seasonName = season["nom"]
       var getEpisodes = showtime.httpReq(seasonUrl, {
@@ -108,10 +105,8 @@
       });
 
       var episodes = showtime.JSONDecode(getEpisodes).data;
-      var index2 = 0;
-      for each(episode in episodes) {
-        var episode = episodes[index2];
-        // var publish_end = "Disponible jusqu'à : " + episode["publish_end"] +"\n\n";   
+      episodes.forEach(function(episode){
+        // var publish_end = "Disponible jusqu'à : " + episode["publish_end"] +"\n\n";
         var metadata = {
           title: seasonName + " - " + episode["titre"],
           description: episode["description"],
@@ -120,11 +115,10 @@
           icon: episode["image"]
         };
         page.appendItem(PLUGIN_PREFIX + "video:" + episode["idBC"], "video", metadata);
-        index2++;
-      }  
+      });
      index++;
 
-    }
+    });
 
     page.loading = false;
   });
@@ -138,13 +132,13 @@
     page.type = 'video';
     var bestDefUrl = "";
     var bestDefFrameWidth = 0;
-    for each(rendition in renditions) {
+    renditions.forEach(function(rendition) {
         showtime.trace("rendition width: " + rendition.frameWidth);
         if(rendition.frameWidth > bestDefFrameWidth) {
           bestDefFrameWidth = rendition.frameWidth;
           bestDefUrl = rendition.url;
         }
-    }
+    });
     showtime.trace("Playing best definition @ " + bestDefFrameWidth + " from : " + bestDefUrl);
     page.source = bestDefUrl;
     page.loading = false;

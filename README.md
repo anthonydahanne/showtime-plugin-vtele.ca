@@ -10,6 +10,8 @@ Most of the content is in french, seems to be accessible from outside Canada, an
 
 ## Release notes
 
+1.1 - Updated for Movian 4.10 (compatibility with Duktape ecmascript engine)
+
 1.0 - First release
 
 -  allows you to browse shows (Emissions), then select one and choose your episode
